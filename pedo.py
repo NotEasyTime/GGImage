@@ -26,33 +26,41 @@ def place_image():
 
 def save_image():
     print("Saved")
+
 def save_image_as(new_file_name):
     print("Saved As " + new_file_name)
+
 def button_command():
     print("This button works")
+
+# This converts an image into a list by looping though every pixel
+# Right now the image is hard coded to be "im" aka the imported image
 def image_to_list():
     global whole_image
     global row
     pxl = []
     row = []
     whole_image = []
-    for i in range(hei):
+    for i in range(hei): # for every row
         temp = []
-        for j in range(wid):
+        for j in range(wid): # for every pixel in the row
             cor = x, y = j, i
             pixel = im.getpixel(cor)
             temp.append(pixel)
         whole_image.append(temp)
-    list_to_array(whole_image)
+    list_to_array(whole_image) # calls the funcion with the whole_image list as a prameter 
 
-
+# takes a list and converts it into an arrray stored in array_one
+# a better sloution is needed when converting multiple images to a list
 def list_to_array(list):
     global array_one
     array_one = numpy.array(list, dtype=numpy.uint8)
     #print(array_one)
 
-    filter()
+    filter() # calls the filter funciton
 
+# filters the dark part of the image and sets it to yellow
+# hardcoded to filter array_one needs to be make to take a array as a prameter
 def filter():
     global filtered_array
     filtered_array = array_one
@@ -68,6 +76,8 @@ def filter():
     #print(filtered_array)
     array_to_image()
 
+#Takes an array and makes it an image
+# Hard coded to array_one needs to be made more flexible with prameters 
 def array_to_image():
     new_image = Image.fromarray(array_one)
     new_image.show()
