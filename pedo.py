@@ -22,7 +22,8 @@ def import_image():
 
 def place_image():
     label1 = tkinter.Label(image=img)
-    label1.pack()
+    label1.pack_configure(padx = 0,pady=(0,0))
+
 def save_image():
     print("Saved")
 def save_image_as(new_file_name):
