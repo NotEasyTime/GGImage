@@ -1,1 +1,5 @@
-print("This should be commited")
+from tkinter import *
+
+root = Tk()
+
+root.mainloop()
