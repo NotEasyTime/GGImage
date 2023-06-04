@@ -16,7 +16,7 @@ def place_image():
     label1.pack()
 
 root = tkinter.Tk()
-root.geometry('500x200')
+root.geometry('500x300')
 B = tkinter.Button(root, text = "Import Image", command = import_image)
 B.pack()
 root.mainloop()
