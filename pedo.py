@@ -1,5 +1,8 @@
 from tkinter import *
-import tkMessageBox
+import tkinter
+
+
+
 
 from tkinter import filedialog
 
@@ -9,8 +12,10 @@ def import_image():
     print("Selected: ", filename)
 
 
-root = Tk()
+root = tkinter.Tk()
+B = tkinter.Button(root, text = "Import Image", command = import_image)
 
+B.pack()
 root.mainloop()
 
 print("Merge")
