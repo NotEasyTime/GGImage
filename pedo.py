@@ -112,6 +112,10 @@ But = tkinter.Button(frame, text ="Hello", command = button_command)
 
 
 
+temp = tkinter.Button(frame, text = "Image Array", command = image_to_list)
+temp.pack_configure(padx = 0, pady = 0)
+
+
 root.geometry('500x300')
 
 
