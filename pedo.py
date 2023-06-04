@@ -120,7 +120,4 @@ temp.pack_configure(padx = 0, pady = 0)
 root.geometry('500x300')
 
 
-temp = tkinter.Button(frame, text = "Image Array", command = image_to_list)
-temp.pack_configure(padx = 0,pady=(0,0))
-
 root.mainloop()
