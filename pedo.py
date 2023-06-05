@@ -20,9 +20,12 @@ def import_image():
     img = ImageTk.PhotoImage(im)
     place_image()
 
+#Sets the image on the canvas 
+#Resizes the canvas to fit the image
+#BUGGED 
 def place_image():
-    label1 = tkinter.Label(image=img)
-    label1.pack_configure(padx = 0,pady=(0,0))
+    canvas.config(width=wid,height=hei)
+    canvas.create_image((wid / 2, hei / 2), image = img)
 
 def save_image():
     print("Saved")
