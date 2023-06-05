@@ -75,7 +75,7 @@ def filter():
                 num1 =  num[z]
                 total = total + num1
             if total < 300:
-                filtered_array[i,j]=(255,255,0)
+                filtered_array[i,j]=(255,0,0)
     #print(filtered_array)
     array_to_image()
 
