@@ -62,13 +62,13 @@ def list_to_array(list):
     array_one = numpy.array(list, dtype=numpy.uint8)
     #print(array_one)
 
-    filter() # calls the filter funciton
+    filter_dark(array_one) # calls the filter funciton
+    filter_light(array_one)
 
 # filters the dark part of the image and sets it to yellow
-# hardcoded to filter array_one needs to be make to take a array as a prameter
-def filter():
+def filter_dark(array):
     global filtered_array
-    filtered_array = array_one
+    filtered_array = array
     for i in range(hei):
         for j in range(wid):
             num = array_one[i,j]
@@ -79,12 +79,25 @@ def filter():
             if total < 300:
                 filtered_array[i,j]=(255,0,0)
     #print(filtered_array)
-    array_to_image()
+    array_to_image(filtered_array)
+
+def filter_light(array):
+    filtered_array = array
+    for i in range(hei):
+        for j in range(wid):
+            num = array_one[i,j]
+            total = 0
+            for z in range(3):
+                num1 =  num[z]
+                total = total + num1
+            if total > 300:
+                filtered_array[i,j]=(255,0,255)
+    #print(filtered_array)
+    array_to_image(filtered_array)
 
 #Takes an array and makes it an image
-# Hard coded to array_one needs to be made more flexible with prameters 
-def array_to_image():
-    new_image = Image.fromarray(array_one)
+def array_to_image(x):
+    new_image = Image.fromarray(x)
     new_image.show()
     #label2 = tkinter.Label(image=new_image)
     #label2.pack()
