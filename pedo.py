@@ -64,6 +64,7 @@ def list_to_array(list):
 
     filter_dark(array_one) # calls the filter funciton
     filter_light(array_one)
+    filter_mid(array_one)
 
 # filters the dark part of the image and sets it to yellow
 def filter_dark(array):
@@ -93,6 +94,19 @@ def filter_light(array):
             if total > 300:
                 filtered_array[i,j]=(255,0,255)
     #print(filtered_array)
+    array_to_image(filtered_array)
+
+def filter_mid(array):
+    filtered_array = array
+    for i in range(hei):
+        for j in range(wid):
+            num  = array_one[i,j]
+            total = 0 
+            for z in range(3):
+                num1 = num[z]
+                total = total + num1
+            if total > 100 and total < 400:
+                filtered_array[i,j]=(0,255,0)
     array_to_image(filtered_array)
 
 #Takes an array and makes it an image
