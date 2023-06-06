@@ -7,7 +7,7 @@ from numpy import asarray
 
 list5 = []
 
-#This comments is for git testing
+#This comment is for git testing
 
 def import_image():
     global filename
